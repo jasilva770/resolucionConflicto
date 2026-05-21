@@ -9,46 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8FAFC;
-        }
-        h1, h2, h3, .serif {
-            font-family: 'Merriweather', serif;
-        }
-        .nav-item.active {
-            background-color: #EFF6FF;
-            color: #1D4ED8;
-            border-right: 3px solid #1D4ED8;
-        }
-        .tab-btn.active {
-            background-color: #1D4ED8;
-            color: white;
-        }
-        .timer-circle {
-            transition: stroke-dashoffset 1s linear;
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F1F5F9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #CBD5E1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94A3B8;
-        }
-        .fade-in {
-            animation: fadeIn 0.4s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        h1, h2, h3, .serif { font-family: 'Merriweather', serif; }
+        .nav-item.active { background-color: #EFF6FF; color: #1D4ED8; border-right: 3px solid #1D4ED8; }
+        .tab-btn.active { background-color: #1D4ED8; color: white; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+        .checked { background-color: #10B981; border-color: #10B981 !important; }
+        .checked i { opacity: 1 !important; }
     </style>
 </head>
 <body class="text-slate-800 h-screen flex flex-col md:flex-row overflow-hidden">
@@ -69,9 +41,7 @@
 
         <nav class="flex-1 overflow-y-auto py-4">
             <div class="px-4 mb-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">Módulos del Taller</div>
-            <ul id="moduleList" class="space-y-1">
-                <!-- Modules will be injected here by JS -->
-            </ul>
+            <ul id="moduleList" class="space-y-1"></ul>
         </nav>
 
         <div class="p-4 border-t border-slate-100 bg-slate-50">
@@ -79,8 +49,7 @@
                 <img src="https://ui-avatars.com/api/?name=Facilitador&background=0D8ABC&color=fff" alt="Facilitador" class="w-10 h-10 rounded-full shadow-sm">
                 <div>
                     <p class="text-sm font-medium text-slate-700">MGTI. Julio Andres Silva Aragon.</p>
-                    <p class="text-xs text-slate-500">Docente: CURSO TRANSVERSAL DE PRE - PRÁCTICA 
-Y PRÁCTICA </p>
+                    <p class="text-xs text-slate-500">Docente: Uniremington</p>
                 </div>
             </div>
         </div>
@@ -88,7 +57,6 @@ Y PRÁCTICA </p>
 
     <!-- Main Content Area -->
     <main class="flex-1 flex flex-col h-full overflow-hidden relative">
-        <!-- Top Bar -->
         <header class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center shadow-sm">
             <div>
                 <h2 id="mainTitle" class="text-2xl font-bold text-slate-800">Bienvenido</h2>
@@ -102,16 +70,12 @@ Y PRÁCTICA </p>
             </div>
         </header>
 
-        <!-- Content Container -->
         <div id="contentArea" class="flex-1 overflow-y-auto p-6 md:p-10 bg-slate-50">
-            <!-- Dynamic Content Injected Here -->
             <div id="welcomeScreen" class="max-w-4xl mx-auto text-center py-20">
-                <img src="https://image.qwenlm.ai/public_source/cb44a651-5ef1-461c-b857-1ce4bbfbca36/11b07aa7b-5821-481e-a063-0b79350ce3eb.png" alt="Workshop Planning" class="w-full max-w-lg mx-auto rounded-2xl shadow-xl mb-8 object-cover h-64">
+                <img src="https://image.qwenlm.ai/public_source/cb44a651-5ef1-461c-b857-1ce4bbfbca36/11b07aa7b-5821-481e-a063-0b79350ce3eb.png" alt="Workshop Planning" class="w-full max-w-lg mx-auto rounded-2xl shadow-xl mb-8 object-cover h-64 mx-auto">
                 <h2 class="text-3xl font-bold text-slate-800 mb-4">Manual del Taller de Resolución de Conflictos</h2>
-                <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                    Esta herramienta interactiva te guiará paso a paso a través de cada dinámica, guion y material necesario para ejecutar el taller de manera profesional y segura.
-                </p>
-                <div class="flex justify-center gap-4">
+                <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">Esta herramienta interactiva te guiará paso a paso a través de cada dinámica, guion y material necesario para ejecutar el taller de manera profesional y segura.</p>
+                <div class="flex justify-center gap-4 flex-wrap">
                     <button onclick="loadModule(0)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all flex items-center gap-2">
                         <i class="fa-solid fa-play"></i> Comenzar Módulo 1
                     </button>
@@ -124,40 +88,16 @@ Y PRÁCTICA </p>
     </main>
 
     <script>
-        // --- Data Structure ---
         const workshopData = [
             {
                 id: 1,
                 title: "Módulo 1: Fundamentos y Diagnóstico",
                 time: "60 min",
-                icon: "fa-ice-cream", // Using as placeholder for Iceberg
+                icon: "fa-ice-cream",
                 type: "Dinámica Vivencial",
                 objective: "Diferenciar posiciones (lo que se pide) de intereses (lo que se necesita) en un conflicto.",
-                materials: [
-                    "Flipchart grande con dibujo de un Iceberg",
-                    "Post-its de dos colores (ej. Azul y Amarillo)",
-                    "Marcadores gruesos",
-                    "Cinta adhesiva"
-                ],
-                script: `
-                    <h3 class="text-lg font-bold mb-2">1. Introducción Teórica (10 min)</h3>
-                    <p class="mb-4">"Bienvenidos. Imaginen que un conflicto es como un Iceberg. Lo que vemos sobre el agua es solo el 10%: los gritos, las demandas, las 'posiciones'. Pero el 90% del problema está oculto bajo el agua: los miedos, valores, necesidades y emociones. Hoy aprenderemos a bucear."</p>
-                    
-                    <h3 class="text-lg font-bold mb-2">2. Dinámica: 'El Iceberg del Equipo' (30 min)</h3>
-                    <ul class="list-disc ml-6 mb-4 space-y-2">
-                        <li>Pide al grupo que piense en un conflicto reciente común en la organización.</li>
-                        <li>Dibuja el Iceberg en la pizarra. Línea de agua clara.</li>
-                        <li><strong>Encima del agua:</strong> Pide ejemplos de "Posiciones". (Ej: "Quiero que el reporte sea el viernes"). Pega post-its azules.</li>
-                        <li><strong>Debajo del agua:</strong> Pregunta "¿Por qué?". "¿Qué hay detrás?". (Ej: "Necesito tranquilidad para el fin de semana", "Tengo miedo a que el cliente se queje"). Pega post-its amarillos.</li>
-                    </ul>
-
-                    <h3 class="text-lg font-bold mb-2">3. Debriefing / Reflexión (20 min)</h3>
-                    <p class="mb-2">Cierra con estas preguntas poderosas:</p>
-                    <ul class="list-disc ml-6 space-y-2 text-slate-700 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                        <li>"¿Qué pasaría si negociamos solo con lo que está arriba del agua?"</li>
-                        <li>"¿Cómo podemos ayudar al otro a mostrar lo que tiene debajo del agua?"</li>
-                    </ul>
-                `
+                materials: ["Flipchart grande con dibujo de un Iceberg", "Post-its de dos colores (ej. Azul y Amarillo)", "Marcadores gruesos", "Cinta adhesiva"],
+                script: `<h3 class="text-lg font-bold mb-2">1. Introducción Teórica (10 min)</h3><p class="mb-4">"Bienvenidos. Imaginen que un conflicto es como un Iceberg. Lo que vemos sobre el agua es solo el 10%: los gritos, las demandas, las 'posiciones'. Pero el 90% del problema está oculto bajo el agua: los miedos, valores, necesidades y emociones. Hoy aprenderemos a bucear."</p><h3 class="text-lg font-bold mb-2">2. Dinámica: 'El Iceberg del Equipo' (30 min)</h3><ul class="list-disc ml-6 mb-4 space-y-2"><li>Pide al grupo que piense en un conflicto reciente común en la organización.</li><li>Dibuja el Iceberg en la pizarra. Línea de agua clara.</li><li><strong>Encima del agua:</strong> Pide ejemplos de "Posiciones". Pega post-its azules.</li><li><strong>Debajo del agua:</strong> Pregunta "¿Por qué?". "¿Qué hay detrás?". Pega post-its amarillos.</li></ul><h3 class="text-lg font-bold mb-2">3. Debriefing / Reflexión (20 min)</h3><p class="mb-2">Cierra con estas preguntas poderosas:</p><ul class="list-disc ml-6 space-y-2 text-slate-700 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400"><li>"¿Qué pasaría si negociamos solo con lo que está arriba del agua?"</li><li>"¿Cómo podemos ayudar al otro a mostrar lo que tiene debajo del agua?"</li></ul>`
             },
             {
                 id: 2,
@@ -166,33 +106,8 @@ Y PRÁCTICA </p>
                 icon: "fa-comments",
                 type: "Role-Playing en Triadas",
                 objective: "Practicar la escucha activa y la validación emocional antes de responder.",
-                materials: [
-                    "Tarjetas con situaciones conflictivas leves",
-                    "Cronómetro visible",
-                    "Hojas de feedback (Checklist de escucha)"
-                ],
-                script: `
-                    <h3 class="text-lg font-bold mb-2">1. Concepto: Escucha vs. Oír (10 min)</h3>
-                    <p class="mb-4">"A menudo escuchamos para responder, no para entender. La técnica que usaremos hoy se llama 'Parafraseo y Validación'."</p>
-                    
-                    <h3 class="text-lg font-bold mb-2">2. Dinámica: 'El Triángulo de la Escucha' (40 min)</h3>
-                    <p class="mb-2">Divide al grupo en tríadas. Roles: <strong>A (Habla)</strong>, <strong>B (Oyente)</strong>, <strong>C (Observador)</strong>.</p>
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
-                        <p class="font-semibold text-blue-800 mb-2">Reglas del Juego:</p>
-                        <ul class="list-decimal ml-5 space-y-1 text-sm">
-                            <li><strong>A</strong> cuenta una situación real que le molesta (2 min).</li>
-                            <li><strong>B</strong> NO puede dar consejos. Solo puede decir: "Lo que entiendo es que..." y "Entiendo que te sientas...".</li>
-                            <li><strong>C</strong> anota si B cumplió las reglas.</li>
-                            <li>Rotar roles cada 5 minutos.</li>
-                        </ul>
-                    </div>
-
-                    <h3 class="text-lg font-bold mb-2">3. Debriefing (10 min)</h3>
-                    <ul class="list-disc ml-6 space-y-2">
-                        <li>"¿Qué sintieron al ser escuchados sin interrupciones?"</li>
-                        <li>"¿Fue difícil para el Oyente no dar consejos?"</li>
-                    </ul>
-                `
+                materials: ["Tarjetas con situaciones conflictivas leves", "Cronómetro visible", "Hojas de feedback (Checklist de escucha)"],
+                script: `<h3 class="text-lg font-bold mb-2">1. Concepto: Escucha vs. Oír (10 min)</h3><p class="mb-4">"A menudo escuchamos para responder, no para entender. La técnica que usaremos hoy se llama 'Parafraseo y Validación'."</p><h3 class="text-lg font-bold mb-2">2. Dinámica: 'El Triángulo de la Escucha' (40 min)</h3><p class="mb-2">Divide al grupo en tríadas. Roles: <strong>A (Habla)</strong>, <strong>B (Oyente)</strong>, <strong>C (Observador)</strong>.</p><div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4"><p class="font-semibold text-blue-800 mb-2">Reglas del Juego:</p><ul class="list-decimal ml-5 space-y-1 text-sm"><li><strong>A</strong> cuenta una situación real que le molesta (2 min).</li><li><strong>B</strong> NO puede dar consejos. Solo puede decir: "Lo que entiendo es que..." y "Entiendo que te sientas...".</li><li><strong>C</strong> anota si B cumplió las reglas.</li><li>Rotar roles cada 5 minutos.</li></ul></div><h3 class="text-lg font-bold mb-2">3. Debriefing (10 min)</h3><ul class="list-disc ml-6 space-y-2"><li>"¿Qué sintieron al ser escuchados sin interrupciones?"</li><li>"¿Fue difícil para el Oyente no dar consejos?"</li></ul>`
             },
             {
                 id: 3,
@@ -201,38 +116,8 @@ Y PRÁCTICA </p>
                 icon: "fa-handshake",
                 type: "Caso de Estudio / Simulación",
                 objective: "Entender que negociar intereses crea valor, mientras que negociar posiciones lo destruye.",
-                materials: [
-                    "Naranjas reales (una por pareja)",
-                    "Sobres con instrucciones secretas (Role A y Role B)",
-                    "Cuchillo de plástico (opcional, para el final)"
-                ],
-                script: `
-                    <h3 class="text-lg font-bold mb-2">1. Introducción: El Mito de la Torta Fija (5 min)</h3>
-                    <p class="mb-4">"En un conflicto, solemos pensar que si yo gano, tú pierdes. Hoy veremos cómo 'agrandar la torta'."</p>
-                    
-                    <h3 class="text-lg font-bold mb-2">2. Dinámica: 'El Caso de la Naranja' (30 min)</h3>
-                    <p class="mb-2">Parejas. Entregar instrucciones secretas <strong>SIN QUE SE VEA LA OTRA</strong>.</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                            <p class="font-bold text-red-700 mb-2">Instrucción SECRETA - Role A:</p>
-                            <p class="text-sm">Trabajas en una pastelería. Necesitas <strong>LA CÁSCARA</strong> de la naranja para un pastel importante. El jugo no te sirve.</p>
-                        </div>
-                        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                            <p class="font-bold text-green-700 mb-2">Instrucción SECRETA - Role B:</p>
-                            <p class="text-sm">Trabajas en una farmacia. Necesitas <strong>EL JUGO</strong> de la naranja para una medicina. La cáscara no te sirve.</p>
-                        </div>
-                    </div>
-                    <p class="mb-2"><strong>Consigna:</strong> Tienen 5 minutos para negociar la naranja. Deben llegar a un acuerdo.</p>
-                    <p class="text-sm text-slate-500 italic">Nota para el facilitador: La mayoría de las parejas se partirán la naranja a la mitad (negociación posicional), perdiendo el 50% del valor cada uno.</p>
-
-                    <h3 class="text-lg font-bold mb-2">3. La Revelación (15 min)</h3>
-                    <p class="mb-2">Pregunta: "¿Cómo la dividieron?"</p>
-                    <p class="mb-4">Revela los roles secretos. Muestra que si hubieran preguntado <em>"¿Para qué la necesitas?"</em>, ambos hubieran tenido el 100% de lo que necesitaban.</p>
-                    
-                    <h3 class="text-lg font-bold mb-2">4. Lección Clave</h3>
-                    <p class="bg-slate-800 text-white p-4 rounded-lg text-center font-semibold">No negocies posiciones (La Naranja). Negocia intereses (Cáscara vs Jugo).</p>
-                `
+                materials: ["Naranjas reales (una por pareja)", "Sobres con instrucciones secretas (Role A y Role B)", "Cuchillo de plástico (opcional, para el final)"],
+                script: `<h3 class="text-lg font-bold mb-2">1. Introducción: El Mito de la Torta Fija (5 min)</h3><p class="mb-4">"En un conflicto, solemos pensar que si yo gano, tú pierdes. Hoy veremos cómo 'agrandar la torta'."</p><h3 class="text-lg font-bold mb-2">2. Dinámica: 'El Caso de la Naranja' (30 min)</h3><p class="mb-2">Parejas. Entregar instrucciones secretas <strong>SIN QUE SE VEA LA OTRA</strong>.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"><div class="bg-red-50 p-4 rounded-lg border border-red-200"><p class="font-bold text-red-700 mb-2">Instrucción SECRETA - Role A:</p><p class="text-sm">Trabajas en una pastelería. Necesitas <strong>LA CÁSCARA</strong> de la naranja para un pastel importante. El jugo no te sirve.</p></div><div class="bg-green-50 p-4 rounded-lg border border-green-200"><p class="font-bold text-green-700 mb-2">Instrucción SECRETA - Role B:</p><p class="text-sm">Trabajas en una farmacia. Necesitas <strong>EL JUGO</strong> de la naranja para una medicina. La cáscara no te sirve.</p></div></div><p class="mb-2"><strong>Consigna:</strong> Tienen 5 minutos para negociar la naranja. Deben llegar a un acuerdo.</p><p class="text-sm text-slate-500 italic mb-4">Nota para el facilitador: La mayoría de las parejas se partirán la naranja a la mitad, perdiendo el 50% del valor cada uno.</p><h3 class="text-lg font-bold mb-2">3. La Revelación (15 min)</h3><p class="mb-2">Pregunta: "¿Cómo la dividieron?" Revela los roles secretos. Muestra que si hubieran preguntado <em>"¿Para qué la necesitas?"</em>, ambos hubieran tenido el 100% de lo que necesitaban.</p><h3 class="text-lg font-bold mb-2">4. Lección Clave</h3><p class="bg-slate-800 text-white p-4 rounded-lg text-center font-semibold">No negocies posiciones (La Naranja). Negocia intereses (Cáscara vs Jugo).</p>`
             },
             {
                 id: 4,
@@ -241,21 +126,8 @@ Y PRÁCTICA </p>
                 icon: "fa-flag-checkered",
                 type: "Evaluación Formativa",
                 objective: "Consolidar aprendizajes y establecer compromisos de acción.",
-                materials: [
-                    "Formularios de evaluación impresos",
-                    "Sobres para 'Carta al Yo Futuro'",
-                    "Plumas"
-                ],
-                script: `
-                    <h3 class="text-lg font-bold mb-2">1. Evaluación Rápida (10 min)</h3>
-                    <p class="mb-4">Entregar el formulario. Asegurar anonimato para obtener feedback honesto.</p>
-                    
-                    <h3 class="text-lg font-bold mb-2">2. Dinámica: 'Carta al Yo Futuro' (10 min)</h3>
-                    <p class="mb-4">"Escribe una carta a ti mismo para leerla en 1 mes. Comprométete a usar UNA herramienta de hoy."</p>
-                    
-                    <h3 class="text-lg font-bold mb-2">3. Despedida</h3>
-                    <p class="mb-2">"El conflicto no desaparece, pero ahora tienen mejores herramientas para bailarlo. ¡Gracias!"</p>
-                `,
+                materials: ["Formularios de evaluación impresos", "Sobres para 'Carta al Yo Futuro'", "Plumas"],
+                script: `<h3 class="text-lg font-bold mb-2">1. Evaluación Rápida (10 min)</h3><p class="mb-4">Entregar el formulario. Asegurar anonimato para obtener feedback honesto.</p><h3 class="text-lg font-bold mb-2">2. Dinámica: 'Carta al Yo Futuro' (10 min)</h3><p class="mb-4">"Escribe una carta a ti mismo para leerla en 1 mes. Comprométete a usar UNA herramienta de hoy."</p><h3 class="text-lg font-bold mb-2">3. Despedida</h3><p class="mb-2">"El conflicto no desaparece, pero ahora tienen mejores herramientas para bailarlo. ¡Gracias!"</p>`,
                 evaluation: [
                     { q: "En una escala del 1 al 5, ¿qué tan útil fue la dinámica del Iceberg?", type: "likert" },
                     { q: "¿Identificaste al menos un interés oculto en un conflicto reciente?", type: "boolean" },
@@ -264,19 +136,16 @@ Y PRÁCTICA </p>
             }
         ];
 
-        // --- State ---
         let currentModuleIndex = -1;
         let timerInterval;
         let timeRemaining = 0;
 
-        // --- DOM Elements ---
         const moduleListEl = document.getElementById('moduleList');
         const contentAreaEl = document.getElementById('contentArea');
         const mainTitleEl = document.getElementById('mainTitle');
         const mainSubtitleEl = document.getElementById('mainSubtitle');
         const totalTimeDisplay = document.getElementById('totalTimeDisplay');
 
-        // --- Initialization ---
         function init() {
             renderSidebar();
         }
@@ -284,9 +153,7 @@ Y PRÁCTICA </p>
         function renderSidebar() {
             moduleListEl.innerHTML = workshopData.map((mod, index) => `
                 <li>
-                    <button onclick="loadModule(${index})" 
-                        class="nav-item w-full text-left px-6 py-4 flex items-center gap-3 hover:bg-slate-50 transition-colors group"
-                        id="nav-${index}">
+                    <button onclick="loadModule(${index})" class="nav-item w-full text-left px-6 py-4 flex items-center gap-3 hover:bg-slate-50 transition-colors group" id="nav-${index}">
                         <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors">
                             <i class="fa-solid ${mod.icon}"></i>
                         </div>
@@ -303,30 +170,20 @@ Y PRÁCTICA </p>
             currentModuleIndex = index;
             const mod = workshopData[index];
             
-            // Update Sidebar Active State
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             document.getElementById(`nav-${index}`).classList.add('active');
 
-            // Update Header
             mainTitleEl.innerText = mod.title;
             mainSubtitleEl.innerText = `${mod.type} • Duración: ${mod.time}`;
-            
-            // Update Timer Display
             totalTimeDisplay.innerText = mod.time;
 
-            // Render Content
             renderModuleContent(mod);
         }
 
         function renderModuleContent(mod) {
-            // Hide Welcome Screen
-            document.getElementById('welcomeScreen').style.display = 'none';
-
-            // Build HTML
+            // BUG FIX: Eliminated the welcomeScreen DOM query that crashed on subsequent clicks
             const html = `
                 <div class="max-w-5xl mx-auto fade-in">
-                    
-                    <!-- Top Summary Card -->
                     <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                             <div>
@@ -340,7 +197,6 @@ Y PRÁCTICA </p>
                             </div>
                         </div>
                         
-                        <!-- Timer Display (Hidden initially) -->
                         <div id="timerDisplay" class="hidden bg-slate-50 p-4 rounded-lg border border-slate-200 flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
                                 <div class="text-3xl font-mono font-bold text-slate-800" id="timerValue">00:00</div>
@@ -353,10 +209,7 @@ Y PRÁCTICA </p>
                         </div>
                     </div>
 
-                    <!-- Two Column Layout -->
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        
-                        <!-- Left Column: Materials & Prep -->
                         <div class="lg:col-span-1 space-y-6">
                             <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                                 <div class="bg-slate-50 px-5 py-3 border-b border-slate-200 flex justify-between items-center">
@@ -368,15 +221,14 @@ Y PRÁCTICA </p>
                                         ${mod.materials.map(mat => `
                                             <li class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
                                                 <div class="w-5 h-5 rounded border border-slate-300 flex items-center justify-center mt-0.5 group-hover:border-blue-500 transition-colors">
-                                                    <i class="fa-solid fa-check text-white text-xs opacity-0 group-[.checked]:opacity-100 transition-opacity"></i>
+                                                    <i class="fa-solid fa-check text-white text-xs opacity-0 transition-opacity"></i>
                                                 </div>
-                                                <span class="text-sm text-slate-600 group-[.checked]:text-slate-400 group-[.checked]:line-through transition-all">${mat}</span>
+                                                <span class="text-sm text-slate-600 transition-all">${mat}</span>
                                             </li>
                                         `).join('')}
                                     </ul>
                                 </div>
                             </div>
-
                             ${mod.evaluation ? `
                             <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                                 <div class="bg-slate-50 px-5 py-3 border-b border-slate-200">
@@ -386,28 +238,9 @@ Y PRÁCTICA </p>
                                     ${mod.evaluation.map(item => `
                                         <div class="bg-slate-50 p-3 rounded-lg">
                                             <p class="text-sm font-medium text-slate-800 mb-2">${item.q}</p>
-                                            ${item.type === 'likert' ? `
-                                                <div class="flex justify-between px-2">
-                                                    <span class="text-xs text-slate-400">1</span>
-                                                    <div class="flex gap-1">
-                                                        ${[1,2,3,4,5].map(n => `<div class="w-6 h-6 rounded bg-slate-200 hover:bg-blue-400 cursor-pointer"></div>`).join('')}
-                                                    </div>
-                                                    <span class="text-xs text-slate-400">5</span>
-                                                </div>
-                                            ` : ''}
-                                            ${item.type === 'boolean' ? `
-                                                <div class="flex gap-4 mt-2">
-                                                    <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
-                                                        <input type="radio" name="eval_${item.q}" class="text-blue-600"> Sí
-                                                    </label>
-                                                    <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
-                                                        <input type="radio" name="eval_${item.q}" class="text-blue-600"> No
-                                                    </label>
-                                                </div>
-                                            ` : ''}
-                                            ${item.type === 'open' ? `
-                                                <div class="w-full h-16 bg-white border border-slate-200 rounded mt-2 text-xs text-slate-400 p-2">Respuesta del participante...</div>
-                                            ` : ''}
+                                            ${item.type === 'likert' ? `<div class="flex justify-between px-2"><span class="text-xs text-slate-400">1</span><div class="flex gap-1">${[1,2,3,4,5].map(n => `<div class="w-6 h-6 rounded bg-slate-200 hover:bg-blue-400 cursor-pointer"></div>`).join('')}</div><span class="text-xs text-slate-400">5</span></div>` : ''}
+                                            ${item.type === 'boolean' ? `<div class="flex gap-4 mt-2"><label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input type="radio" name="eval_${item.q}" class="text-blue-600"> Sí</label><label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input type="radio" name="eval_${item.q}" class="text-blue-600"> No</label></div>` : ''}
+                                            ${item.type === 'open' ? `<div class="w-full h-16 bg-white border border-slate-200 rounded mt-2 text-xs text-slate-400 p-2">Respuesta del participante...</div>` : ''}
                                         </div>
                                     `).join('')}
                                 </div>
@@ -415,20 +248,17 @@ Y PRÁCTICA </p>
                             ` : ''}
                         </div>
 
-                        <!-- Right Column: Script & Steps -->
                         <div class="lg:col-span-2">
                             <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden h-full">
                                 <div class="bg-slate-50 px-5 py-3 border-b border-slate-200 flex justify-between items-center">
                                     <h3 class="font-bold text-slate-700"><i class="fa-solid fa-terminal mr-2 text-blue-500"></i>Guion del Facilitador</h3>
                                     <div class="flex gap-2">
-                                        <button onclick="toggleTab('script')" class="tab-btn active px-3 py-1 text-xs font-bold rounded-md transition-colors">Guion</button>
-                                        <button onclick="toggleTab('tips')" class="tab-btn px-3 py-1 text-xs font-bold rounded-md bg-white text-slate-500 hover:bg-slate-100 transition-colors">Tips Pedagógicos</button>
+                                        <button onclick="toggleTab('script', this)" class="tab-btn active px-3 py-1 text-xs font-bold rounded-md transition-colors">Guion</button>
+                                        <button onclick="toggleTab('tips', this)" class="tab-btn px-3 py-1 text-xs font-bold rounded-md bg-white text-slate-500 hover:bg-slate-100 transition-colors">Tips Pedagógicos</button>
                                     </div>
                                 </div>
                                 <div class="p-8 prose prose-slate max-w-none">
-                                    <div id="scriptContent">
-                                        ${mod.script}
-                                    </div>
+                                    <div id="scriptContent">${mod.script}</div>
                                     <div id="tipsContent" class="hidden">
                                         <h4 class="font-bold text-slate-800 mb-3">Consejos para el Facilitador</h4>
                                         <ul class="list-disc ml-5 space-y-3 text-slate-600">
@@ -441,70 +271,54 @@ Y PRÁCTICA </p>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             `;
-            
             contentAreaEl.innerHTML = html;
         }
 
-        // --- Helper Functions ---
-
         function toggleCheck(el) {
-            el.classList.toggle('checked');
             const icon = el.querySelector('i');
+            const box = el.querySelector('div');
+            el.classList.toggle('checked');
+            
             if(el.classList.contains('checked')) {
                 icon.classList.remove('opacity-0');
-                el.querySelector('div').classList.add('bg-green-500', 'border-green-500');
-                el.querySelector('div').classList.remove('border-slate-300');
+                box.classList.add('bg-green-500', 'border-green-500');
+                box.classList.remove('border-slate-300');
             } else {
                 icon.classList.add('opacity-0');
-                el.querySelector('div').classList.remove('bg-green-500', 'border-green-500');
-                el.querySelector('div').classList.add('border-slate-300');
+                box.classList.remove('bg-green-500', 'border-green-500');
+                box.classList.add('border-slate-300');
             }
         }
 
-        function toggleTab(tabName) {
-            const btns = document.querySelectorAll('.tab-btn');
-            btns.forEach(b => {
+        function toggleTab(tabName, btnEl) {
+            document.querySelectorAll('.tab-btn').forEach(b => {
                 b.classList.remove('active', 'bg-blue-600', 'text-white');
                 b.classList.add('bg-white', 'text-slate-500');
             });
             
-            // Find the clicked button (approximate logic for demo)
-            const clickedBtn = Array.from(btns).find(b => b.innerText.toLowerCase().includes(tabName === 'script' ? 'guion' : 'tips'));
-            if(clickedBtn) {
-                clickedBtn.classList.add('active');
-                clickedBtn.classList.remove('bg-white', 'text-slate-500');
+            if(btnEl) {
+                btnEl.classList.add('active');
+                btnEl.classList.remove('bg-white', 'text-slate-500');
             }
 
-            if(tabName === 'script') {
-                document.getElementById('scriptContent').classList.remove('hidden');
-                document.getElementById('tipsContent').classList.add('hidden');
-            } else {
-                document.getElementById('scriptContent').classList.add('hidden');
-                document.getElementById('tipsContent').classList.remove('hidden');
-            }
+            document.getElementById('scriptContent').classList.toggle('hidden', tabName !== 'script');
+            document.getElementById('tipsContent').classList.toggle('hidden', tabName !== 'tips');
         }
 
-        // --- Timer Logic ---
         let timerSeconds = 0;
         let isRunning = false;
 
         function startTimer(timeStr) {
             if(isRunning) return;
-            
-            // Parse time string like "60 min"
             const minutes = parseInt(timeStr.split(' ')[0]);
             timerSeconds = minutes * 60;
-            
             document.getElementById('timerDisplay').classList.remove('hidden');
             updateTimerDisplay();
-            
             isRunning = true;
             if(timerInterval) clearInterval(timerInterval);
-            
             timerInterval = setInterval(() => {
                 if(timerSeconds > 0) {
                     timerSeconds--;
@@ -518,10 +332,7 @@ Y PRÁCTICA </p>
         }
 
         function pauseTimer() {
-            if(timerInterval) {
-                clearInterval(timerInterval);
-                isRunning = false;
-            }
+            if(timerInterval) { clearInterval(timerInterval); isRunning = false; }
         }
 
         function resetTimer() {
@@ -535,9 +346,7 @@ Y PRÁCTICA </p>
             document.getElementById('timerValue').innerText = `${m}:${s}`;
         }
 
-        // Start
         init();
-
     </script>
 </body>
 </html>
